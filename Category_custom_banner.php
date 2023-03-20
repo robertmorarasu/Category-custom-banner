@@ -3,7 +3,7 @@
  * Plugin Name: Category custom banner
  * Plugin URI: https://github.com/robertmorarasu/Category-custom-banner
  * GitHub Plugin URI: https://github.com/robertmorarasu/Category-custom-banner
- * Description: A custom plugin who add an image in Product Categories page description. 
+ * Description:  This plugin creates the ability to add a custom banner image as title background on WooCommerce product archive header. Also allows to change the category title and description text color.
  * Author: Morarasu Robert
  * Copyright (c) 2023 [Morarasu Robert]
  * Version: 1.0
@@ -14,8 +14,6 @@
  
  if ( ! defined( 'ABSPATH' ) ) {	exit(0);}
  
- 
-
 /**
 
 The Showcase_Taxonomy_Images class adds an image field to product category pages in WordPress.
@@ -42,10 +40,7 @@ if( ! class_exists( 'Showcase_Taxonomy_Images' ) ) {
      add_action( 'admin_footer', array( $this, 'add_script' ) );
    }
 
-
-
 /**
-
 Load media for the category image field.
 This method enqueues the WordPress media scripts and styles if the current page is a product category page.
 @since 1.0.0
@@ -177,16 +172,7 @@ This method enqueues the WordPress media scripts and styles if the current page 
 $Showcase_Taxonomy_Images = new Showcase_Taxonomy_Images();
 $Showcase_Taxonomy_Images->init(); }
 
-
-
-
-
-
-
-
 // Display image and adjust css style of category description 
-
-
 function robomx_category_description_image() {
   $term_id = get_queried_object_id();
   $image_id = get_term_meta( $term_id, 'showcase-taxonomy-image-id', true );
@@ -211,8 +197,7 @@ function robomx_category_description_image() {
 	  .term-description h2 {
     font-size: 15px;
 }
-	  
-	  
+  
       .woocommerce-archive-description {
         background-image: url(<?php echo $image_url; ?>);
         background-size: cover;
@@ -225,20 +210,6 @@ function robomx_category_description_image() {
   }
 }
 add_action('woocommerce_archive_description', 'robomx_category_description_image');
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 // Add 	ColorPicker fields in Product Categories & Edit Category dashboard pages
 
@@ -262,8 +233,6 @@ function robomx_woo_add_category_color_fields() {
     </script>
     <?php
 }
-
-
 
 function robomx_woo_edit_category_color_fields( $term, $taxonomy ) {
     $term_id = $term->term_id;
@@ -289,8 +258,6 @@ function robomx_woo_edit_category_color_fields( $term, $taxonomy ) {
     <?php
 }
 
-
-
 add_action( 'edited_product_cat', 'robomx_woo_save_category_color_fields', 10, 2 );
 add_action( 'create_product_cat', 'robomx_woo_save_category_color_fields', 10, 2 );
 
@@ -306,15 +273,6 @@ function robomx_woo_save_category_color_fields( $term_id, $tt_id ) {
         update_option( "taxonomy_$term_id", $term_meta );
     }
 }
-
-
-
-
-
-
-
-
-
 
 
 // Add conexion between ColorPicker fields and Category Description Title/Subtitle in Product Categories front page
@@ -338,20 +296,6 @@ function robomx_woo_category_description() {
     }
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 // Override the archive-product.php file
 
 add_filter('woocommerce_locate_template', 'omx_custom_woocommerce_template', 999, 3);
@@ -367,7 +311,6 @@ function omx_custom_woocommerce_template($template, $template_name, $template_pa
     return $template;
 }
 
-
 // Alias the conflicting function
 if (!function_exists('omx_wc_template_redirect')) {
     function omx_wc_template_redirect() {
@@ -376,18 +319,7 @@ if (!function_exists('omx_wc_template_redirect')) {
     add_action('template_redirect', 'omx_wc_template_redirect');
 }
 
-
-
-
-
-
-
-
-
-
-
 // Remove Category Description 
-
 function remove_term_description_class() {
     remove_action( 'woocommerce_archive_description', 'woocommerce_taxonomy_archive_description', 10 );
 }
