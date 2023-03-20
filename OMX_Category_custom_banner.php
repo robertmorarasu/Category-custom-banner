@@ -1,6 +1,6 @@
 <?php
 /**
- * Plugin Name: OMX Category custom banner
+ * Plugin Name: Category custom banner
  * Plugin URI: https://github.com/robertmorarasu/OMX-Category-custom-banner
  * GitHub Plugin URI: https://github.com/robertmorarasu/OMX-Category-custom-banner
  * Description: A custom plugin who add an image in Product Categories page description. 
