@@ -1,8 +1,8 @@
 <?php
 /**
  * Plugin Name: OMX Category custom banner
- * Plugin URI: https://github.com/alexmoise/omx-graphics-woocommerce-customizations
- * GitHub Plugin URI: https://github.com/alexmoise/omx-graphics-woocommerce-customizations
+ * Plugin URI: https://github.com/robertmorarasu/OMX-Category-custom-banner
+ * GitHub Plugin URI: https://github.com/robertmorarasu/OMX-Category-custom-banner
  * Description: A custom plugin who add an image in Product Categories page description. 
  * Author: Morarasu Robert
  * Copyright (c) 2023 [Morarasu Robert]
